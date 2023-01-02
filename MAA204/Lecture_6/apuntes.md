@@ -88,4 +88,4 @@ With n i.i.d samples, $X_i \sim N(0,1)$ and estimators <br> $\bar{X_n} = \frac{1
 - **Difference estimator:** $\hat{\Delta} = \bar{X_n} - \bar{Y_n} = \hat{p}_1 - \hat{p}_2$
 - **Variance:** $Var(\hat{\Delta}) = \frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}$
 - $(1-\alpha)100\%$ **confidence interval:**
-$$\hat{p}_1 - \hat{p}2 \pm z{1-\alpha/2}\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} - \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}$$
+$$\hat{p}_1 - \hat{p}_2 \pm z{1-\alpha/2}\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} - \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}$$
