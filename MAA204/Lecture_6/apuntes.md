@@ -52,7 +52,7 @@ Consists in finding:
 ### Maximum likelihood estimator
 - **Def - Likelihood of $\theta$:** $L(\theta) = \prod\limits_{i=1}^{n} f_{\theta}(x_i)$ 
 >  quantify how well a set of observations, ${x_1, x_2, ..., x_n}$, fit a given distribution described by the PDF, $f_{\theta}$.
-- **Def - Maximum likelihood estimator:** $\hat{\theta} = \argmax L(\theta)$
+- **Def - Maximum likelihood estimator:** $\hat{\theta} = argmax L(\theta)$
 
 ---
 ### 4.2 Confidence intervals
