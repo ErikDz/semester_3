@@ -10,8 +10,7 @@
 ### 4.1 Sampling and statistics
 - **Random sample:** If the random variables $X_1, X_2, . . . , X_n$ are independent and identically distributed (iid), then these random variables constitute a random sample of size $n$ from the common distribution.
 - **Statistic:** : Let $X_1, X_2, . . . , X_n$ denote a sample on a random variable $X$. Let $T = T(X_1, X_2, . . . , X_n)$ be a function of the sample. Then $T$ is called a statistic.
-> Example: $T(X_1, ... , X_n) = \overline{X}_n = \frac{1}{n}
-> \sum\limits_{i=1}^{n} X_i$ 
+> Example: $T(X_1, \dots , X_n) = \overline{X}n = \frac{1}{n} \sum{i=1}^{n} X_i$
 - **Realization:** Once the sample is drawn, then $t$ is called *the realization of $T$*, where $t = T(x_1, x_2, . . . , x_n)$ and $x_1, x_2, . . . , x_n$ is the realization of the sample.
 
 ---
