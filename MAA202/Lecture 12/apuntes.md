@@ -57,7 +57,7 @@ where det $L$ is the determinant of the linear map underlying $L$.
 - **Def 4.2.7:** We set
 $$\int_\Omega f(x,y)dxdy = \int_{I \times J} f \circ \varphi(t,s)jac(\varphi)(t,s)dtds$$
 
-- **Def 4.2.8:** Let $(\Omega_k)_k$ a finite family of domains $C¹$ diffeomorphic to a rectangle. Assume that  $ \forall j \neq k$,
+- **Def 4.2.8:** Let $(\Omega_k)_k$ be a finite family of domains $C^1$ diffeomorphic to a rectangle. Assume that  $\forall j \neq k$,
 $$|\Omega_k \cap \Omega_j| = 0$$
-Let $f$ a continuous map on $\Omega = \cup \Omega_k$. We define
-$$\int_\Omega f(x,y)dxdy = \sum\limits_k \int_{\Omega_k} f(x,y)dxdy$$
+Let $f$ be a continuous map on $\Omega = \cup \Omega_k$. We define
+$$\int_\Omega f(x,y)\,dx\,dy = \sum\limits_k \int_{\Omega_k} f(x,y)\,dx\,dy$$
