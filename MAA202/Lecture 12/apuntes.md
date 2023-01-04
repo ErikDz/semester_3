@@ -28,6 +28,7 @@ $$M_1 = M + u \\ M_2 = M + u + v \\ M_3 = M + v$$
 
 ![image of graph](./graph.png)</center>
 
+
 - **Def 4.2.3:** Let $\Omega$ be a parallelogram and $L$ an affine map s.t. $\Omega = L([0,1]²)$. Lef $f$ a continuous map on $\Omega$. We define
 $$\int_\Omega f(x,y)dxdy = \int_{[0,1]^2} |\det L|f(L(t,s))dtdst$$
 where det $L$ is the determinant of the linear map underlying $L$.
