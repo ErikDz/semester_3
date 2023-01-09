@@ -62,3 +62,18 @@ $$\int_\Omega f(x,y)dxdy = \int_{I \times J} f \circ \varphi(t,s)jac(\varphi)(t,
 $$|\Omega_k \cap \Omega_j| = 0$$
 Let $f$ be a continuous map on $\Omega = \cup \Omega_k$. We define
 $$\int_\Omega f(x,y)\,dx\,dy = \sum\limits_k \int_{\Omega_k} f(x,y)\,dx\,dy$$
+
+
+---
+
+## ADDONS
+
+- **Theo 3.1.3:** Let $I$ and $J$ be two intervals of $\mathbb{R}$. Let $f:I\times J \xrightarrow{} \mathbb{C}$,. Let $x_0 \in I$. Assume that
+    - $\forall x \in I, t \mapsto f(x,t)$ is piecewise continuous
+    - $\forall t \in J, x \mapsto f(x,t)$ is continuous at $x_0$
+    - $\exists \varphi$ integrable on $J$ and $V$ a neighborhood of $x_0$ s.t. $\forall x \in V, t \in J, |f(x,t)| \le \varphi(t)$ 
+  Then the map 
+  $$g(x) = \int_J f(x,t)dt$$ is well defined and **continuous** at $x_0$.
+
+> Used on the whole first section of the TD. Proved continuity of the integral given by checking continuity and integrability of the integrand. You can use this to prove $C¹$ by doing the same steps but for $\partial_x f$ and $\partial_y f$
+>
