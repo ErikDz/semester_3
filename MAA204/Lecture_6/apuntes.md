@@ -7,6 +7,8 @@
 #### Statistical model
 - **Def - Statistical model:** A statistical model is characterized by a family of probability laws on the same space. Every law depends on $θ$ . The model is denoted by $$M = \{p(· | θ), θ ∈ Θ\}$$
 > It's like a blueprint that helps you understand how different parts of the system are related, and how they might change over time.
+
+
 ### 4.1 Sampling and statistics
 - **Random sample:** If the random variables $X_1, X_2, . . . , X_n$ are independent and identically distributed (iid), then these random variables constitute a random sample of size $n$ from the common distribution.
 - **Statistic:** : Let $X_1, X_2, . . . , X_n$ denote a sample on a random variable $X$. Let $T = T(X_1, X_2, . . . , X_n)$ be a function of the sample. Then $T$ is called a statistic.
@@ -35,7 +37,7 @@
 ### Law of large numbers and central limit theorem
 
 - **Theo - Strong LLN:** $X_1, X_2, ...$ sequence of iid. integrable in ($L¹$) r.v with $\mu = \mathbb{E}[X_1]$ Then, $$\bar{X_n} \xrightarrow[n\rightarrow \infty]{\text{a.s.}} \mu$$
-- **Theo - Central limit theorem (CTL):** $X_1,..., X_n$ sequence of i.i.d integrable r.v with $\mu = \mathbb{E}(X_1)$ and $\sigma² = Var(X_1) < +\infty$ Then, $$W_n = \frac{\bar{X_n}-\mu}{\mu/\sqrt{n}} \xrightarrow[n\rightarrow \infty]{distrib.} \mathcal{N}(0,1)$$
+- **Theo - Central limit theorem (CTL):** $X_1,..., X_n$ sequence of i.i.d integrable r.v with $\mu = \mathbb{E}(X_1)$ and $\sigma² = Var(X_1) < +\infty$ Then, $$W_n = \frac{\bar{X_n}-\mu}{\sigma/\sqrt{n}} \xrightarrow[n\rightarrow \infty]{distrib.} \mathcal{N}(0,1)$$
 
 ---
 ### Method of moments (MoM)
@@ -63,14 +65,13 @@ Consists in finding:
 - $1 − α$ is called the confidence coefficient of this interval.
 > For example, if we have a sample of size $n$ from a population with an unknown parameter, $\theta$, and we want to construct a 95% confidence interval for $\theta$, we would set $\alpha = 0.05$. This means that the probability of the true value of $\theta$ lying within the confidence interval is 0.95, or 95%.
 
+For a normal distribution, the confidence interval is given by:
+$$\bar{X_n} \pm z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}$$
+
+a.k.a $L=-z_{\frac{\alpha}{2}}$ and $U=z_{\frac{\alpha}{2}}$
+
 #### Quantile reminder *(skip)*
-The quantile reminder is calculated as the difference between the sample quantile and the theoretical quantile, divided by the standard deviation of the sample quantile. For example, let $Q_{\alpha}$ be the $\alpha$-quantile of a given distribution, and let $\hat{Q}_{\alpha}$ be the sample quantile, corresponding to the $\alpha$-quantile of the empirical distribution of the data. The quantile reminder is then given by:
-
-$r_{\alpha} = \frac{\hat{Q}{\alpha} - Q{\alpha}}{s_{\alpha}}$
-
-where $s_{\alpha}$ is the standard deviation of the sample quantile.
-
-#### Exact confidence interval: Gaussian model
+The quantile reminder is calculate
 With n i.i.d samples, $X_i \sim N(0,1)$ and estimators <br> $\bar{X_n} = \frac{1}{n} \sum\limits{i=1}^n X_i$ <br> and <br>$\hat{\sigma}^2_n = \frac{1}{n-1}\sum\limits_{i=1}^n(X_i - \bar{X_n})^2$
 - Assuming $\mu$ known, $$Z_n = \sqrt{n}\frac{\bar{X_n} - \mu}{\sigma}\sim N(0,1)$$
 - When $\mu$ unknown, $$W_n = \sqrt{n}\frac{\bar{X}_n - \mu}{\sqrt{\hat{\sigma}^2_n}} \sim T_{n-1}$$

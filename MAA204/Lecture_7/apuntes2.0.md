@@ -27,7 +27,7 @@ $$\hat{\sigma}²=\frac{p_1(1-p_1)}{n_1}+\frac{p_2(1-p_2)}{n_2}$$
 - The confidence interval is:
 $$\hat{p}_1-\hat{p}_2 \plusmn z_{1-\alpha/2}\sqrt{\frac{p_1(1-p_1)}{n_1}+\frac{p_2(1-p_2)}{n_2}}$$
 > In this expression, $z_{1-\alpha/2}$ is the critical value from a standard normal distribution with a $1-\alpha/2$ probability of being exceeded.
-
+---
 ### 4.4 Order Statistics
 - **Order Statistics:** Statistical values that describe the order of observations within a sample. These values include things like the minimum, maximum, median, and other quantiles of the sample. 
   
@@ -52,8 +52,10 @@ Thus, $Y_k$ is the natural estimate of the $\frac{k}{n+1}$ quantile.
 
 #### 4.4.2 Confidence Intervals for Quantiles
 - **Distribution Free property**: For any continuous r.v $X$, let $Y_i$ be the corresponding orderedstatistics, if $i<[(n+1)]<j$ then
-$$\mathbb{P}(Y_i<\Xi_p<Y_j)=\sum_limits_{w_i}^{j-1}\binom{n}{w}p^w(1-p)^{n-w}$$
+$$\mathbb{P}(Y_i<\xi_p<Y_j)=\sum\limits_{w_i}^{j-1}\binom{n}{w}p^w(1-p)^{n-w}$$
 
+
+---
 ### 4.5 Introduction to Hypothesis Testing
 r.v $X$ has a pdf $f(x;\theta)$ where $\theta\in\Omega$. Suppose that we think $\theta\in\omega_1$ or $\theta\in\omega_2$ where $\omega_1\cap\omega_2 = \Omega$ and disjoint. We label these hypotheses as
 $$H_0:\theta\in\omega_0\text{versus}H_1:\theta\in\omega_1$$ 
@@ -88,3 +90,24 @@ $$1-P_\theta[\text{Type II Error}] = P_\theta[(X_1,...,X_h)\in C]$$
 $$\gamma_C(\theta)=P_\theta[(X_1,...,X_h)\in C]; \theta\in\omega_1$$
 
 Hence, given two critical regions $C_1$ and $C_2$, which are both of size $\alpha$, $C_1$ is better than $C_2$ if $\gamma_{C_1}(\theta)>\gamma_{C_2}(\theta)$ for all $\theta\in\omega_1$.
+
+#### Nomenclature
+A hypothesis of type $H_0:p=p_0$ comletely specifies the underlying ditribution, it is called a **simple hypothesis**.
+Most hypothesis, sucha as $H_1:p<p_0$ are **composite** hypotheses because they are composed of many simple hypotheses and hence do not completely specify the distribution.
+Frequently, $\alpha$ is called the **significance-level**.
+Tests with alt. hypothesis of type $\theta>\theta_0$ are called **one sided** while tests with alt. hypothesis of type $\theta \neq \theta_0$ are called **two sided**
+> Two-sided tests are called that way because they test for differences in either direction, whereas one-sided tests only test for differences in one direction.
+
+
+- **Def - p-value:** $\mathbb{P}(|T|>t(x)|H_0)$ = **p-value**. aka the probability of observing results equal to, or more extreme than those actually observed if the null hypothesis was true
+If the p-value is smaller than the specified significance level $\alpha$, $H_0$ is rejected
+
+
+---
+### 4.7 Chi-Square Tests
+Pearson's chi-squared: $\chi^2_{k-1}=\sum\limits_{i=1}^{k} \frac{(O_i - E_i)^2}{E_i}=\sum\limits_{i=1}^{k}\sum\limits_{j=1}^I \frac{(O_{i,j} - E_{i,j})^2}{E_{i,j}}$ (for two categorical r.v)
+> The test statistic $\chi^2_{k-1}$ is calculated by summing the squared differences between the observed and expected frequencies, divided by the expected frequencies, for each category. Here $O_i$ denotes the observed value while $E_i$ the expected one
+
+### 4.8 The Method of Monte Carlo (SKIPPED!!!!!!!!!!)
+
+### 4.9 Bootstrap Procedures
