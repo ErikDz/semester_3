@@ -55,7 +55,7 @@ Consists in finding:
 - **Def - Likelihood of $\theta$:** $L(\theta) = \prod\limits_{i=1}^{n} f_{\theta}(x_i)$ 
 >  quantify how well a set of observations, ${x_1, x_2, ..., x_n}$, fit a given distribution described by the PDF, $f_{\theta}$.
 - **Def - Maximum likelihood estimator:** $\hat{\theta} = argmax L(\theta)$
-
+> since $\log$ strictly increasing, the value that maximizes $L(\theta)$ is the same as that that maximizes $\log{L(\theta)}\implies$ **use $\log$ when finding argmax!** (the derivative)
 ---
 ### 4.2 Confidence intervals
 - Let $X_1, . . . , X_n$ be a sample of a r.v. $X$ having pdf $f (x; θ)$, $θ ∈ Θ$
