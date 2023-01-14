@@ -64,8 +64,8 @@ $H_0$ is referred to as the **null hypothesis**, while $H_1$ is referred as the 
 
 |            | $H_0$ is true   | $H_1$ is true|
 |------------|---------------|------------|
-|Accept $H_0$   | Type I error  | Correct Decision |
-|Reject $H_0$   | Correct Decision| Type II error |
+|Reject $H_0$   | Type I error  | Correct Decision |
+|Accept $H_0$   | Correct Decision| Type II error |
 
 
 We denote the space of the sample by $\mathcal{D} = space\{(X_1,...,X_n)\}$

@@ -2,7 +2,7 @@
 ### MAA202 (23/1/2023)
 - Final
 - Make-up final
-- Last TD
+- Last TD (only last exercise)
 
 ### MAA204 (25/1/2023)
 - Homework (almost done)
@@ -11,7 +11,7 @@
 - TD7
 
 ### MAA201 (26/1/2023)
-- Last TD
+- Last TD 
 - Revise tds
 
 ### CSE202 (27/1/2023)

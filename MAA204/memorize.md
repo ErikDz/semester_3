@@ -15,6 +15,15 @@ $var(aX + bY) = a^2 var(X) + b^2 var(Y) + 2ab cov(X, Y)$
 - **Theorem 1.7.1 (Jacobian subs):** Let $X$ be a continuous random varaible with pdf $f_X(x)$ and suport $S_X$. Let $Y=g(x)$ where $g(x)$ is a one-to-one differentiable function, on the support of $X$, $S_X$. Let $dx/dy=d[g^{-1}(y)/dy]$. Then the pdf of $Y$ is given by
 $$f_Y(y)=f_X(g^{-1}(y))|\frac{dx}{dy}|,\text{for } y\in S_Y$$,
 where the support of $Y$ is the set $S_Y=\{y=g(x):x\in S_X\}$
+
+### TD3
+<sup>Faltaría PC3 (el q no es de 2022)</sup>
+
+- **Theo - Law of total probability:** $\mathbb{P}[X>0] + \mathbb{P}[X<0] + \mathbb{P}[X=0]=1$
+
+### TD4
+- saberse las dist 
+
 ### TD5
 - bias
 - quadratic risk
@@ -27,4 +36,9 @@ where the support of $Y$ is the set $S_Y=\{y=g(x):x\in S_X\}$
 
 ## TD 6
 - method of moments
+- conf interval
 > Parece que simplemente es poner $E[X]=\bar{X}$ y solvear por $\theta$. Lo que te de $\theta$ será el "method of moments estimator".
+
+## TD 7
+
+- hypothesis testing
