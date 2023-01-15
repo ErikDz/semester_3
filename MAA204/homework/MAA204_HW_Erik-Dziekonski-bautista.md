@@ -78,8 +78,8 @@ R(\hat{m}_{ML},\lambda)
 & = \frac{1}{N\lambda^2}
 \end{array}$$
 
-
-----
+#### Question 4
+!["graph"](R%20Notebook_files/py_graph1.png)
 
 #### Question 5
 
@@ -138,7 +138,8 @@ Proving convergence in probability
 We have $Z_n := \frac{\sqrt{n}(\hat{m}_{ML}-m)}{\sqrt{\bar{V}_n}}$
 Using the central limit theorem and the fact that $\bar{V}_n$ converges in probability to $Var(X_1)$, we have that as $n\rightarrow \infty$, $Z_n$ converges in distribution to a standard normal distribution.
 
-#### Question 10 (***)
+#### Question 10 
+!["graph"](R%20Notebook_files/py_graph2.png)
 
 #### Question 11
 Let $\alpha \in [0,1]$. We know from TD6, that 
@@ -152,7 +153,7 @@ $$\begin{array}{l l}
 \end{array}$$
 
 Therefore we conclude that the interval $I$ is:
-$$(\hat{m}_{ML}-\frac{z_{1-\alpha/2}}{\sqrt{n}},\hat{m}_{ML}+\frac{z_{1-\alpha/2}}{\sqrt{n}})$$
+$$(\hat{m}_{ML}-\frac{z_{1-\alpha/2}}{\sqrt{n}}\cdot\sqrt{\sigma},\hat{m}_{ML}+\frac{z_{1-\alpha/2}}{\sqrt{n}}\cdot\sqrt{\sigma})$$
 
 ----
 
@@ -162,7 +163,7 @@ $$(\hat{m}_{ML}-\frac{z_{1-\alpha/2}}{\sqrt{n}},\hat{m}_{ML}+\frac{z_{1-\alpha/2
 #### Question 12
 Let $U \sim \mathcal{U}([0,1])$. Let $\phi(x) = \sqrt{-2\log(x)}$
 Let us find the cumulative distribution function of $R = \phi(U)$
-$$F_R(r) = \mathbb{P}[\phi(U)\le r] = \mathbb{P}[U\le e^{-\frac{r^2}{2}}] = e^{-\frac{r^2}{2}}$$
+$$F_R(r) = \mathbb{P}[\phi(U)\le r] = \mathbb{P}[U\ge e^{-\frac{r^2}{2}}] = 1- e^{-\frac{r^2}{2}}$$
 
 #### Question 13
 Let $V\sim \mathcal{U}([0,1])$, independent from $U$.
@@ -172,7 +173,7 @@ Taking the derivative of the CDF with respect to $θ$ to get the PDF of $\Theta$
 $$f_{\Theta}(θ) =\frac{d}{d\theta}F(θ) = 1/(2π)$$
 
 Now, we take the joint density of $\Theta$ and $R$.
-$$f_{\Theta,R}(\theta,r) = f_{\Theta}(\theta)\cdot f_{R}(r) = -\frac{re^{-\frac{r^2}{2}}}{2\pi}$$
+$$f_{\Theta,R}(\theta,r) = f_{\Theta}(\theta)\cdot f_{R}(r) = \frac{re^{-\frac{r^2}{2}}}{2\pi}$$
 
 #### Question 14
 Let $(a,b) = g(R,\theta) = (R\cos(\theta), R\sin(\theta))$. Let us find a way to compute $R$ only given $a$ and $b$.
@@ -185,13 +186,118 @@ Now, let us find the analytical expression of $f_{X,Y}(a,b)$
 $$\begin{array}{l l}
 f_{X,Y}(a,b) &= \frac{f_{R,\theta}(g^{-1}(a,b))}{r}\\
 &= \frac{f_{R,\theta}(r)}{r}\\
-&= -\frac{e^{-r²/2}}{2\pi}
+&= \frac{e^{-r²/2}}{2\pi}
 \end{array}$$
 
 
-#### Question 16(*)
+#### Question 16
 Let us check if $X$ and $Y$ are independent.
-$$\mathbb{P}[X\le x, Y\le y] = \mathbb{P}[X\le x]\cdot \mathbb{P}[Y\le y]$$
+Notice that $\frac{1}{\sqrt{2\pi}}e^{\frac{-a^2}{2}}=f_X(a)$
+and
+$\frac{1}{\sqrt{2\pi}}e^{\frac{-b^2}{2}}=f_Y(b)$
+Hence, they are independent
+
+#### Question 17(*)
+
+#### Question 18
+```r
+# Generate 3000 samples of U and V i.i.d. following a uniform law in [0,1]
+U <- runif(3000)
+V <- runif(3000)
 
 
-#### Question 17
+#X and Y according to the Box - Muller method
+X <- sqrt(-2*log(U))*cos(2*pi*V)
+Y <- sqrt(-2*log(U))*sin(2*pi*V)
+
+#plot the histogram of X and Y
+hist(X, freq = F, xlim = c(-5, 5), ylim = c(0, 0.5), main = "Histogram of X and Y", xlab = "x", ylab = "density")
+```
+
+!["image of hist"](R%20Notebook_files/data_url.png)
+
+```r
+hist(Y, freq = F, xlim = c(-5, 5), ylim = c(0, 0.5), main = "Histogram of X and Y", xlab = "x", ylab = "density")
+```
+
+
+!["histogram"](R%20Notebook_files/data_url.2.png)
+
+```r
+#compute the covariance between X and Y
+cov(X, Y)
+```
+> [1] -0.01315398
+
+```r
+#Generate 3000 samples using the rnorm function of R
+Z <- rnorm(3000)
+
+#plot the histogram of Z
+hist(Z, freq = F, xlim = c(-5, 5), ylim = c(0, 0.5), main = "Histogram of Z", xlab = "x", ylab = "density")
+```
+
+
+!["histogram"](R%20Notebook_files/data_url.3.png)
+
+
+```r
+#Generate N1,N2 two vectors of 3000 sample of a normal distribution using the funntion rnorm
+N1 <- rnorm(3000)
+N2 <- rnorm(3000)
+
+#Generate E1,E2 a vector of 3000 samples of an exponential distribution using the function rexp
+E1 <- rexp(3000)
+E2 <- rexp(3000)
+
+#Plot the quantile-quantile diagrams of N1 and N2
+qqnorm(N1)
+qqline(N1)
+```
+!["histogram"](R%20Notebook_files/data_url.4.png)
+
+```r
+qqnorm(N2)
+qqline(N2)
+```
+!["histogram"](R%20Notebook_files/data_url.5.png)
+
+```r
+qqplot(N1,N2)
+```
+
+!["histogram"](R%20Notebook_files/data_url.6.png)
+
+```r
+#Plot the quantile-quantile diagrams of E1 and E2
+qqnorm(E1)
+qqline(E1)
+```
+
+!["histogram"](R%20Notebook_files/data_url.7.png)
+
+```r
+qqnorm(E2)
+qqline(E2)
+```
+
+!["histogram"](R%20Notebook_files/data_url.7.png)
+
+```r
+qqplot(E1,E2)
+```
+
+!["histogram"](R%20Notebook_files/data_url.9.png)
+
+```r
+#Plot the diagram of N1 and E1
+plot(N1, E1, main = "Diagram of N1 and E1", xlab = "N1", ylab = "E1")
+```
+
+!["histogram"](R%20Notebook_files/data_url.10.png)
+
+```r
+qqplot(N1,E1)
+```
+
+!["histogram"](R%20Notebook_files/data_url.11.png)

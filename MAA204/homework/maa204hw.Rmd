@@ -1,0 +1,171 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*.
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+```{r}
+#open exponential.csv file
+exp <- read.csv("exponential.csv")
+#density function of an exponential distribution with parameter 1/m
+exp_density <- function(x, m) {
+  1/m * exp(-x/m)
+}
+#compute the mean of exponential.csv
+m_ML <- mean(exp)
+
+#Generate 500 datapoints from an exponential distribution with parameter m_ML
+exp_gen <- rexp(500, m_ML)
+
+
+```
+
+```{r}
+# Generate 3000 samples of U and V i.i.d. following a uniform law in [0,1]
+U <- runif(3000)
+V <- runif(3000)
+
+
+#X and Y according to the Box - Muller method
+X <- sqrt(-2*log(U))*cos(2*pi*V)
+Y <- sqrt(-2*log(U))*sin(2*pi*V)
+
+#plot the histogram of X and Y
+hist(X, freq = F, xlim = c(-5, 5), ylim = c(0, 0.5), main = "Histogram of X and Y", xlab = "x", ylab = "density")
+hist(Y, freq = F, xlim = c(-5, 5), ylim = c(0, 0.5), main = "Histogram of X and Y", xlab = "x", ylab = "density")
+
+#compute the covariance between X and Y
+cov(X, Y)
+
+```
+Question 12.
+
+$R$ is given as $$R = \sqrt{-2\log(U)}$$ where $U$ follow a uniform distribution on [0, 1]
+
+$$\begin{align*}
+\mathbb{P}\bigl[R \leq x\bigr] & = \mathbb{P}\bigl[-2 \log(U) \leq x^2\bigr] = \\
+& = \mathbb{P}\bigl[\log(U) \geq -\frac{x^2}{2}\bigr] = \\
+& = 1 - \mathbb{P}\biggl[U < \exp\Bigl(-\frac{x^2}{2}\Bigr)\biggr]\, .
+\end{align*}$$
+
+$U$ is a random variable from uniform distribution on [0, 1], so 
+
+$$\mathbb{P}[R \leq x] = 1 - \int_{0}^{\exp(-x^2/2)}  \,dx = 1 - \exp(\frac{-x^2}{2}) $$
+Hence, $$F_R(x) =  1 - \exp(\frac{-x^2}{2})$$
+We can obtain the density by taking the derivative of the CDF as it is differentiable on the interval we the problem is defined on. Thus we have
+$$f_R(x) = \exp(\frac{-x^2}{2})*x $$ for $x > 0$.
+
+Question 13.
+
+Let $V = 2\pi\Theta$. As $V$ is uniformly distributed on [0, 1] it immidiately follows that the density function is $$f_V(x) = \frac{1}{2\pi}$$.
+
+Since $U$ and $V$ are independent the joint density is
+$$f_{R, \Theta}(x_1, x_2) = f_R(x_1) f_\Theta(x_2) = \frac{1}{2 \pi} \exp\Bigl(-\frac{x_1^2}{2}\Bigr)\cdot x_1 \, .$$
+
+Question 14.
+
+Let $(a,b) = g(R, \theta) = (R\cos(\theta),R\sin(\theta))$. Meaning, we have 
+$$\begin{cases}
+      a = R\cos(\theta)\\
+      b = R\sin(\theta)
+    \end{cases}\
+$$
+
+Using $\cos^2(\theta) + \sin^2(\theta) = 1$, we have $$R = \sqrt{a^2 + b^2}$$.
+
+Question 15.
+
+FIRST QUESTION IS TBD
+
+$$ \begin{align*}
+f_{X, Y}(a, b) = \frac{f_{R, \theta}(g^{-1}(a, b))}{r} &= \frac{1}{2 \pi} \exp\Bigl(-\frac{a^2 + b^2}{2}\Bigr) \\ 
+&= \frac{1}{\sqrt{2 \pi}} \exp\Bigl(-\frac{a^2}{2}\Bigr) \cdot \frac{1}{\sqrt{2 \pi}} \exp\Bigl(-\frac{b^2}{2}\Bigr)
+\end{align*}$$
+
+We used $$R = \sqrt{a^2 + b^2}$$
+Question 16.
+
+Notice $\frac{1}{\sqrt{2 \pi}} \exp\Bigl(-\frac{a^2}{2}\Bigr) = f_X(a)$ and $\frac{1}{\sqrt{2 \pi}} \exp\Bigl(-\frac{b^2}{2}\Bigr) = f_Y(b)$, hence we can conclude that $X$ and $Y$ are independent.
+Furthermore, from their density functions we can see that both N(0,1) distributed.
+
+Question 17.
+
+
+Question 18.
+
+```{r}
+# Generate 3000 samples of U and V i.i.d. following a uniform law in [0,1]
+U <- runif(3000)
+V <- runif(3000)
+
+
+#X and Y according to the Box - Muller method
+X <- sqrt(-2*log(U))*cos(2*pi*V)
+Y <- sqrt(-2*log(U))*sin(2*pi*V)
+
+#plot the histogram of X and Y
+hist(X, freq = F, xlim = c(-5, 5), ylim = c(0, 0.5), main = "Histogram of X and Y", xlab = "x", ylab = "density")
+hist(Y, freq = F, xlim = c(-5, 5), ylim = c(0, 0.5), main = "Histogram of X and Y", xlab = "x", ylab = "density")
+
+#compute the covariance between X and Y
+cov(X, Y)
+
+```
+
+
+```{r}
+#Generate 3000 samples using the rnorm function of R
+Z <- rnorm(3000)
+
+#plot the histogram of Z
+hist(Z, freq = F, xlim = c(-5, 5), ylim = c(0, 0.5), main = "Histogram of Z", xlab = "x", ylab = "density")
+```
+
+```{r}
+#Generate N1,N2 two vectors of 3000 sample of a normal distribution using the funntion rnorm
+N1 <- rnorm(3000)
+N2 <- rnorm(3000)
+
+#Generate E1,E2 a vector of 3000 samples of an exponential distribution using the function rexp
+E1 <- rexp(3000)
+E2 <- rexp(3000)
+
+#Plot the quantile-quantile diagrams of N1 and N2
+qqnorm(N1)
+qqline(N1)
+qqnorm(N2)
+qqline(N2)
+
+qqplot(N1,N2)
+
+#Plot the quantile-quantile diagrams of E1 and E2
+qqnorm(E1)
+qqline(E1)
+qqnorm(E2)
+qqline(E2)
+
+qqplot(E1,E2)
+```
+
+```{r}
+#Plot the diagram of N1 and E1
+plot(N1, E1, main = "Diagram of N1 and E1", xlab = "N1", ylab = "E1")
+
+#Plot the quantile-quantile diagrams of N1 and E1
+qqnorm(N1)
+qqline(N1)
+qqnorm(E1)
+qqline(E1)
+
+qqplot(N1,E1)
+```
+
