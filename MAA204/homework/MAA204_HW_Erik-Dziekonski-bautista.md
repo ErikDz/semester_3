@@ -48,6 +48,12 @@ $$\frac{\partial}{\partial \lambda} \ell(\lambda, x_1, ..., x_N) = \frac{\partia
 
 $$ =\frac{N}{m}-\frac{1}{m^2}\sum\limits_{i=1}^N x_i = 0 $$
 
+We get that $\lambda = \frac{1}{\bar{X}_n}$
+
+Let us now check whether it is a maximum or a minimum.
+We take the second derivative and pass it the previous value
+$$\frac{\partial²}{\partial \lambda^2}(l(\frac{1}{\bar{X}_n})) = N - 2\cdot \frac{1}{\bar{X}_n} \cdot \sum\limits_{i=1}^n x_i\le 0 \implies \text{it is a maximum}$$
+
 So the maximum likelihood estimator for $\lambda$, is
 
 $$\hat{\lambda} = \frac{1}{\frac{1}{N}\sum\limits_{i=1}^N x_i} = 1/({\overline{X_n}}) \implies \hat{m}_{ML} = \overline{X}_n  $$
@@ -99,20 +105,20 @@ $$f_Y(y) = \frac{\partial}{\partial y} F_Y(y) = - \lambda N y\cdot e^{-N\lambda 
 
 #### Question 6
 Let us check whether $Y_n$ is an unbiased estimator of $m$.
+We already know the law for $Y_n$ as a result from the tds.
 
 We have that
 
-$$\mathbb{E}[Y_n] = \mathbb{E}[\min(X_1,...,X_N)] = \mathbb{E}[X_1] = \frac{1}{\lambda} = m$$
+$$\mathbb{E}[Y_n] = \mathbb{E}[n\cdot\min(X_1,...,X_N)] = \frac{1}{n\cdot\lambda}\cdot n = \frac{1}{\lambda} = m$$
 
 Because the expected value of $Y_n$ is equal to the true value of $m$, we can say that $Y_n$ is an unbiased estimator.
 
 Let us now compute its quadratic risk. We recall that for an unbiased estimator, it is its variance.
-$$Var(Y_n) = Var(\min(X_1,...,X_n)) = Var(X_1) = \frac{1}{\lambda^2} = m^2$$
-
+$$Var(Y_n) = Var(n\cdot\min(X_1,...,X_n)) = n²\cdot\frac{1}{\lambda²\cdot n²} = \frac{1}{\lambda^2} = m^2$$
 
 
 #### Question 7
-As an estimator I would choose $Y_n$ since it has a lower quadratic risk than $\hat{m}_{ML}$ (and both are unbiased estimators).
+As an estimator I would choose $\hat{m}_{ML}$  since it has a lower quadratic risk than  $Y_n$ (and both are unbiased estimators).
 
 #### Question 8
 Let us show $\overline{V}_n := \frac{1}{n}\sum_{i=1}^n(X_i - \bar{X}_n)^2$ converges in probability to $Var(X_1)=\frac{1}{\lambda^2}$ where $\bar{X}_n=\sum_{i=1}^n X_i$ is the empirical mean.
@@ -165,6 +171,10 @@ Let $U \sim \mathcal{U}([0,1])$. Let $\phi(x) = \sqrt{-2\log(x)}$
 Let us find the cumulative distribution function of $R = \phi(U)$
 $$F_R(r) = \mathbb{P}[\phi(U)\le r] = \mathbb{P}[U\ge e^{-\frac{r^2}{2}}] = 1- e^{-\frac{r^2}{2}}$$
 
+Let us now compute the density of $R$ by deriving the CDF with respect to $r$.
+
+$$f_R(r) = \frac{d}{dr}F_R(r) = r\cdot e^{-\frac{r^2}{2}}$$
+
 #### Question 13
 Let $V\sim \mathcal{U}([0,1])$, independent from $U$.
 Let us give the density of the r.v. $\Theta=2\pi V$
@@ -197,7 +207,8 @@ and
 $\frac{1}{\sqrt{2\pi}}e^{\frac{-b^2}{2}}=f_Y(b)$
 Hence, they are independent
 
-#### Question 17(*)
+#### Question 17
+Since the laws of $X$ and $Y$ match that of a standard normal distribution, it seems the method is a valid way to generate normal distributions from uniform distributions.
 
 #### Question 18
 ```r
@@ -240,7 +251,10 @@ hist(Z, freq = F, xlim = c(-5, 5), ylim = c(0, 0.5), main = "Histogram of Z", xl
 
 !["histogram"](R%20Notebook_files/data_url.3.png)
 
+Comment: The histograms of X and Y are very similar to the histogram of a standard normal distribution. The calculated covariance is very close to 0, which means that X and Y are independent. 
 
+
+#### Question 19 
 ```r
 #Generate N1,N2 two vectors of 3000 sample of a normal distribution using the funntion rnorm
 N1 <- rnorm(3000)
@@ -289,15 +303,27 @@ qqplot(E1,E2)
 
 !["histogram"](R%20Notebook_files/data_url.9.png)
 
-```r
-#Plot the diagram of N1 and E1
-plot(N1, E1, main = "Diagram of N1 and E1", xlab = "N1", ylab = "E1")
-```
+We observe that the graph of $N1$ and $N2$ and for $E1$ and $E2$ the distribution is linear. For the graph of $N1$  and $E1$ the relationship is not linear. This is because of the reason that the exponential distribution is not a normal distribution (distributions not the same).
 
-!["histogram"](R%20Notebook_files/data_url.10.png)
+#### Question 20
 
 ```r
-qqplot(N1,E1)
-```
+U <- runif(3000)
+V <- runif(3000)
+X <- sqrt(-2 * log(U)) * cos(2 * pi * V)
+Y <- sqrt(-2 * log(U)) * sin(2 * pi * V)
 
-!["histogram"](R%20Notebook_files/data_url.11.png)
+N <- rnorm(3000, mean = 0, sd = 1)
+E <- rexp(3000, rate = 0.5)
+
+qqplot(X, E)
+qqplot(X, N)
+qqplot(Y, E)
+qqplot(Y, N)
+```
+![histogram](R%20Notebook_files/Rplot.png)
+![histogram](R%20Notebook_files/Rplot01.png)
+![histogram](R%20Notebook_files/Rplot02.png)
+![histogram](R%20Notebook_files/Rplot03.png)
+
+As we can see, the qqplot comparing the samples generated through the Box-Muller method with the exponentially distributed sampels is not linear, but the qqplot of the samples generated through the Box-Muller method with the normal distributed samples is linear. This behaviour is proper of that of a normal distribution, allowing us to deduce that the Box-Muller method is a valid way to generate normal distributed samples.

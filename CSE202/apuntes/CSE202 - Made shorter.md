@@ -134,7 +134,7 @@ The matrix $(A ⋁ I)^{n-1}$ can be computed by log n squaring
 operations/multiplications 
 </details>
 
-<details >
+<details>
 <summary><b>Lecture 3 - Divide & Conquer 2</b></summary>
 
 # 1. Comparing Rankings
@@ -1205,7 +1205,7 @@ Table of LZW vs Huffman in markdown:
 </details>
 
 
-<details>
+<details open>
 <summary><b>Lecture 13 - P vs NP</b></summary>
 
 ### Model for Polynomial Time Computation
@@ -1238,6 +1238,51 @@ NP is about:
 - the power of determinism
 - the differnce of complexity between finding and checking
 - and this applies to mathematical proofs as special cases
+
+---
+### Examples of NP problems
+#### Example 1: $k$-SAT
+**Problem $k$-Coloring:**
+**Input:** a graph
+**Output:** yes iff there exists a proper coloring with $\le k$ colors (no unicolor edge).
+$$\text{k-Coloring}\in NP$$
+> Let $G=(V,E)$ be a graph with vertex set V and edge set E. The k-coloring problem is to assign a color (a number chosen in $\{1,...,k\}$) to each vertex of G so that no edge has both endpoints with the same color.
+#### Example 2: Hamiltonian Cycle
+**Problem Hamiltonian Cycle:**
+**Input:** a graph
+**Output:** yes iff there exists a cycle visiting every vertex exactly once.
+$$\text{Hamiltonian Cycle}\in NP$$
+
+#### Example 3: Traveling Salesman Problem
+**Problem Traveling Salesman Problem:**
+**Input:** a graph
+**Output:** yes iff there exists a cyclic permutation $\sigma\text{ s.t}\sum\limits_{1\le i \le n}M_{i,\sigma(i)}\le k.$
+$$\text{Traveling Salesman Problem}\in NP$$
+
+#### Example 4: Subset Sum
+**Problem Subset Sum:**
+**Input:** $L=(x_1,...,x_l)\in\mathbb{N}^l. k\in\mathbb{N}$
+**Output:** yes iff there exists a subset $A\subset\{1,...,l\}$ s.t.
+$$\sum\limits_{i\in A}x_i=k$$
+
+$$\text{Subset Sum}\in NP$$
+
+
+#### Example 5: Prime
+**Problem Prime:**
+**Input:** $n\in\mathbb{N}$
+**Output:** yes iff $n$ is prime
+
+#### Example 6: 3-SAT
+**Problem 3-SAT:**
+**Input:** a boolean formula $\phi$ in conjunctive normal form
+**Output:** yes iff $\phi$ is satisfiable
+
+
+
+$$\text{Prime}\in NP$$
+
+---
 
 # 2. NP complete problems
 - **Def - reduces:** $A \text{\&} B$ two decision problems. A reduces to B (denoted $A \le B$), if there exists $f$ computable in polynomial time s.t. $A(x) = 1 \iff B(f(x)) = 1$

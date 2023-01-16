@@ -24,4 +24,4 @@ $$f(x) \underset{x\rightarrow a}{\sim}g(x) \iff \frac{f(x)}{g(x)} \xrightarrow{x
   - (ii) Assume $f(x) \sim g(x)$ when $x \underset{<}{\rightarrow}b$.
   Then, $f$ integrable at $b$ $\iff$ $g$ integrable at $b$.
   
-  
+ 

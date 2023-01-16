@@ -29,20 +29,31 @@
 - **mean:** $\frac{1}{p}$
 - **var:** $\frac{1-p}{p^2}$
 ---
-- **Theo - Markov's inequality:** $\mathbb{P}[X\leq a]\leq \frac{E[X]}{a}$
+- **Theo - Markov's inequality:** $\mathbb{P}[X\geq a]\leq \frac{E[X]}{a}$
 - **Theo - Chebyshev's inequality:** $\mathbb{P}[|X-\mu|>\epsilon]\leq \frac{\sigma^2}{\epsilon^2}$
 
-- **Def - Covariance:** $cov(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]$
+---
 - **Def - Convergence in probability:** $X_n\to X$ in probability if $F_{X_n}(x)\to F_X(x)$ for all $x\in\mathbb{R}$
 - **Def - Convergence in law:** $X_n\to X$ in law if $F_{X_n}(x)\to F_X(x)$ for all $x\in\mathbb{R}$
-- **Def - Convergence in squared error:** $X_n\to X$ in squared error if $E[(X_n-X)^2]\to 0$ as $n\to\infty$
-- **Prop:** :$var(aX + bY) = a^2 var(X) + b^2 var(Y) + 2ab cov(X, Y)$
+- **Def - Almost sure convergence:** $X_n\to X$ almost surely if $\mathbb{P}[\lim\limits_{n\rightarrow\infty}X_n=x]=1$ 
 
+---
+- **Prop:** :$var(aX + bY) = a^2 var(X) + b^2 var(Y) + 2ab cov(X, Y)$
+- **Def - Covariance:** $cov(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]$
+---
 - **Theorem 1.7.1 (Jacobian subs):** Let $X$ be a continuous random varaible with pdf $f_X(x)$ and suport $S_X$. Let $Y=g(x)$ where $g(x)$ is a one-to-one differentiable function, on the support of $X$, $S_X$. Let $dx/dy=d[g^{-1}(y)/dy]$. Then the pdf of $Y$ is given by
 $$f_Y(y)=f_X(g^{-1}(y))|\frac{dx}{dy}|,\text{for } y\in S_Y$$,
 where the support of $Y$ is the set $S_Y=\{y=g(x):x\in S_X\}$
 
 - $f_X(x) = \int\limits_b^a f(x,y)dy$
+---
+- **Theo - Weak law of large numbers:** {$X_n$} sequence of iid random variables having a common mean $\mu$ and variance $\sigma²<\infty$. Then
+$$\bar{X}_n\xrightarrow{\mathbb{P}}\mu$$
+
+- **Theo - Strong law of large numbers:** {$X_n$} sequence of iid random variables having a common mean $\mu$ and $\mathbb{E}[|X_1|⁴]<+\infty$. Then
+$$\bar{X}_n\xrightarrow{\text{almost surely}}\mu$$
+
+
 ---
 ### TD3
 
@@ -83,3 +94,5 @@ Ejemplo:
 $$|p-\hat{p}|\le t\sqrt{\frac{p(1-p)}{n}} \iff \frac{\hat{p}+t²/2n-t\sqrt{\frac{\hat{p}(1-\hat{p})}{n}+\frac{t²}{4n²}}}{1+t²/n} \le p \le \frac{\hat{p}+t²/2n+t\sqrt{\frac{\hat{p}(1-\hat{p})}{n}+\frac{t²}{4n²}}}{1+t²/n}$$
 VS
 $$|p-\hat{p}|\le  t\sqrt{\frac{p(1-p)}{n}} \sim |p-\hat{p}|\le  t\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\\\iff\\\hat{p}-t\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\le p \le \hat{p}+t\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
+
+- Otra forma de 

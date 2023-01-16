@@ -5,10 +5,6 @@
 - Last TD (only last exercise)
 
 ### MAA204 (25/1/2023)
-- Homework (almost done)
-- Exam 2019-2020
-- Exam 2020-2021
-- TD7
 
 ### MAA201 (26/1/2023)
 - Last TD 
@@ -23,3 +19,4 @@
 - HW9
 - HW13
 - Extra exercises
+    - Exercise 3
