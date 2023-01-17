@@ -1,17 +1,17 @@
 ---
-  title: "Introduction to descriptive Statistics with R"
+title: "Introduction to descriptive Statistics with R"
 author: "Kean-Marc Bardet"
 date: ""
 output:
   html_document: default
-pdf_document: default
+  pdf_document: default
 subtitle: MAA 204 Statistics
 editor_options: 
   markdown: 
-  wrap: 72
+    wrap: 72
 ---
-  
-  ```{r setup, include=FALSE}
+
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -57,8 +57,8 @@ Interpret all the previous commands. Note that the dataset is organized
 in a table, called a *dataframe* in **R**, in which each column may have
 a different type. The different variables of the *dataframe* are
 available in the following way:
-  
-  ```{r names}
+
+```{r names}
 is.data.frame(iris)
 names(iris)
 iris$Sepal.Length
@@ -68,8 +68,8 @@ Species
 
 You can have more information by using **help** or using the lower right
 panel in **Rstudio**:
-  
-  ```{r Help, eval = FALSE}
+
+```{r Help, eval = FALSE}
 help(iris)
 dim(iris)
 ```
@@ -94,8 +94,8 @@ experimental design is well balanced, the numbers of each species are
 the same. In order to make the differences between the graphs more
 visible, a randomly drawn subsample (as in an urn without replacement)
 is taken and the graphs redrawn:
-  
-  ```{r Pie2}
+
+```{r Pie2}
 Species2=sample(Species,100)
 mytable2=table(Species2)
 pie(mytable2)
@@ -111,9 +111,9 @@ difficult to compare the different relative frequencies of the
 modalities. Bar charts are therefore generally preferred.
 
 We are now interested in one of the quantitative variables of the *iris*
-  database:
-  
-  ```{r }
+database:
+
+```{r }
 summary(Sepal.Length)
 hist(Sepal.Length,nclass=6)
 hist(Sepal.Length,freq=FALSE,nclass=6)
@@ -130,8 +130,8 @@ understand what is being done.
 
 Now we consider the different statistics and graphics linked to the
 quantiles of the distribution:
-  
-  ```{r boxplot}
+
+```{r boxplot}
 boxplot(Sepal.Length)
 bb=boxplot(Sepal.Length)
 bb$stats
@@ -139,8 +139,8 @@ quantile(Sepal.Length,c(0.25,0.5,0.75))
 ```
 
 The usual empirical moments can also be computed:
-  
-  ```{r Mean}
+
+```{r Mean}
 m=mean(Sepal.Length)
 m
 n=length(Sepal.Length)
@@ -156,16 +156,16 @@ the last command for obtaining the same result.
 ## Exercises
 
 1.  Perform the same statistical analysis for the other three
-quantitative variables in the database.
+    quantitative variables in the database.
 
 2.  Perform the statistical analysis of the variable *Sepal.Length*
-  according to the iris variety. What do you notice? Is it the same
-with the other 3 quantitative variables? Is it possible to recognize
-the variety of iris according to its size?
-  
-  # Some elements of two-dimensional descriptive Statistics
-  
-  After downloading the *TEarth.txt* database from **Moodle**, we will
+    according to the iris variety. What do you notice? Is it the same
+    with the other 3 quantitative variables? Is it possible to recognize
+    the variety of iris according to its size?
+
+# Some elements of two-dimensional descriptive Statistics
+
+After downloading the *TEarth.txt* database from **Moodle**, we will
 integrate it using the "*Import dataset*" command in the "*File*" tab of
 **Rstudio**. We will take care to choose "*Heading*" so that the first
 line represents the name of the two variables and not a data of each of
@@ -188,8 +188,8 @@ plot(TEarth$Year,TEarth$Temp,'l',col="blue")
 We observe globally an increase of the temperature. This can be
 corroborated by calculating the covariance or empirical correlation
 between the two variables:
-  
-  ```{r Covariance}
+
+```{r Covariance}
 cov(Year,Temp)
 mean((Year-mean(Year))*(Temp-mean(Temp)))*136/135
 cor(Year,Temp)
@@ -202,8 +202,8 @@ one.
 
 Now, we will use an important R-command, lm, for obtaining the least
 square regression line:
-  
-  ```{r lm}
+
+```{r lm}
 reg1=lm(Temp~Year,data=TEarth)
 reg1$coef
 summary(reg1)
@@ -217,8 +217,8 @@ used but which require advanced results in inferential Statistics...
 
 Now, if we would like to predict for years 2016 to 2022, this could be
 done in the following way:
-  
-  ```{r Predict}
+
+```{r Predict}
 Year=c(2016:2022)
 New=as.data.frame(Year)
 Pred1=predict.lm(reg1,newdata=New)
@@ -233,35 +233,35 @@ for forecasting the temperature.
 ## Exercises
 
 1.  One method to improve the prediction would be to consider a least
-squares regression line only on the last years. The question would
-be to determine from when. A procedure for this would be to
-determine the modeling of the scatterplot by 2 least squares
-regression lines that would minimize the total sum of the squared
-errors. This would give us: $$
-  (\widehat a_1,\widehat b_1,\widehat a_2,\widehat b_2,\widehat t)=\mbox{Arg}\!\min_{\!\!\!\!\!\!\!\!\!2\leq t\leq n-2}~~ \mbox{Arg}\!\!\!\!\!\!\!\!\min_{\!\!\!\!\!(a_1,b_1,a_2,b_2)\in R^4}\sum_{i=1}^t (Y_i-(a_1X_i+b_1))^2 +\sum_{i=t+1}^n (Y_i-(a_2X_i+b_2))^2,
-$$ where $X_i$ and $Y_i$ correspond here respectively to the year
-and the temperature. Explain why $2\leq t \leq n-2$. Can we obtain
-an explicit formula for $\widehat t$ by derivation? Design a
-sequence of commands to obtain the estimators
-$(\widehat a_1,\widehat b_1,\widehat a_2,\widehat b_2,\widehat t)$.
-In particular, you can use a computer loop "*for"* and the
-command"*min"*. Use it for forecasting and compare with the previous
-predictions.
+    squares regression line only on the last years. The question would
+    be to determine from when. A procedure for this would be to
+    determine the modeling of the scatterplot by 2 least squares
+    regression lines that would minimize the total sum of the squared
+    errors. This would give us: $$
+    (\widehat a_1,\widehat b_1,\widehat a_2,\widehat b_2,\widehat t)=\mbox{Arg}\!\min_{\!\!\!\!\!\!\!\!\!2\leq t\leq n-2}~~ \mbox{Arg}\!\!\!\!\!\!\!\!\min_{\!\!\!\!\!(a_1,b_1,a_2,b_2)\in R^4}\sum_{i=1}^t (Y_i-(a_1X_i+b_1))^2 +\sum_{i=t+1}^n (Y_i-(a_2X_i+b_2))^2,
+    $$ where $X_i$ and $Y_i$ correspond here respectively to the year
+    and the temperature. Explain why $2\leq t \leq n-2$. Can we obtain
+    an explicit formula for $\widehat t$ by derivation? Design a
+    sequence of commands to obtain the estimators
+    $(\widehat a_1,\widehat b_1,\widehat a_2,\widehat b_2,\widehat t)$.
+    In particular, you can use a computer loop "*for"* and the
+    command"*min"*. Use it for forecasting and compare with the previous
+    predictions.
 
 2.  You can also think about finding the closest parabola to the
-scatterplot by least squares, i.e. solve: $$
-  (\widehat a,\widehat b,\widehat c)=\mbox{Arg}\!\!\!\min_{\!\!\!\!\!(a,b,c)\in R^3}\sum_{i=1}^n (Y_i-(a\,X^2_i+b\, X_i+c))^2,
-$$ How could you prove that there exists a unique solution of this
-minimization problem? A **R**-command for numerically computing the
-estimators is to use:
-  
-  ```{r}
-reg2=lm(Temp~Year+I(Year^2),data=TEarth)
-reg2$coefficients
-Pred2=predict.lm(reg2,newdata=New)
-plot(TEarth$Year,TEarth$Temp,'l',col='black',xlim=c(1880,2025),ylim=c(13.3,14.9))
-lines(TEarth$Year,reg1$fit,col='blue')
-lines(Year,Pred1,col='blue')
-lines(TEarth$Year,reg2$fit,col='cyan')
-lines(Year,Pred2,col='cyan')
-```
+    scatterplot by least squares, i.e. solve: $$
+    (\widehat a,\widehat b,\widehat c)=\mbox{Arg}\!\!\!\min_{\!\!\!\!\!(a,b,c)\in R^3}\sum_{i=1}^n (Y_i-(a\,X^2_i+b\, X_i+c))^2,
+    $$ How could you prove that there exists a unique solution of this
+    minimization problem? A **R**-command for numerically computing the
+    estimators is to use:
+
+    ```{r}
+    reg2=lm(Temp~Year+I(Year^2),data=TEarth)
+    reg2$coefficients
+    Pred2=predict.lm(reg2,newdata=New)
+    plot(TEarth$Year,TEarth$Temp,'l',col='black',xlim=c(1880,2025),ylim=c(13.3,14.9))
+    lines(TEarth$Year,reg1$fit,col='blue')
+    lines(Year,Pred1,col='blue')
+    lines(TEarth$Year,reg2$fit,col='cyan')
+    lines(Year,Pred2,col='cyan')
+    ```

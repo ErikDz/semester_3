@@ -45,4 +45,19 @@ $$\forall x \in \mathbb{R}, \forall y\in I, \ \ x\cdot y \in I$$
 - **Prop 3.2** ALl ideals of $\mathbb{Z}$ are of the form $n\mathbb{Z}, \ \ n\in\mathbb{N}$
 
 ### Lecture 5
-- **Theo - Euclidean division of polynomials:**
+- **Theo - Euclidean division of polynomials:** Let $A,B\in K[X]$ be polynomials with $B\ne 0$. There exist unque polynomials $Q,R\in K[X]$ with $deg(R)<deg(B)$ s.t.
+$$A=B\cdot Q + R$$
+
+- We say $a\in K $ is a **root** of $P\in K[X]$ if $P(a) = 0$
+
+- **Theo - Unique factorisation of polynomials:** For each $P\in K[X]$, there exists a uniquedecomposition
+$$P=a\cdot P_1 \ldots P_n$$
+where $a\in K$ and each $P_i$ is an irreducible monic polynomial
+
+> deducir gcd de polinomios con euclids algo
+
+### Lecture 6
+- **Def - minimal polynomial:** The monic polynomial of smallest degree $P\in \mathbb{K}[X]:P(f)=0$
+
+- **Corollary 5.4:** E an n-dimensional vector space. A endomorphism $f\in \mathcal{L}$ is diagonalizable if and only if $f$ has n distinct eigenvalues
+
