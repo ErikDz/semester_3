@@ -3,6 +3,8 @@
 - Final
 - Make-up final
 - Last TD (only last exercise)
+- Revision TD
+- Change of basis exercises!!
 
 ### MAA204 (25/1/2023)
 

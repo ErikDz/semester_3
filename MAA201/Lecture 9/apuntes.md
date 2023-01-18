@@ -44,3 +44,18 @@ $$|\lambda| \le |||A|||$$
 
 - **Theo 4:** For any $A \in M_n(\mathbb{C})$, we have
 $$\log \rho(A) = \lim_n\frac{\log |||A|||}{n}$$
+
+----
+
+## EXTRAS
+- **Theo 5.13 - Jordan Chevalley Decomposition:** $f\in\mathcal{L}(E)$ whose char poly is in the form $\Chi_f=\prod\limits_{i=1}^r(\lambda_i - X)^{n_i}$. There exists a unique pair $(d,n)\in\mathcal(E)^2$ such that:
+1. $f = d+n$
+2. $d$ is diagonalisbale
+3. $n$ is nilpotent
+4. $d$ and $n$ commute, that is, $d\circ n=n\circ d$
+
+- **Lemma 5.14:** $f\in\mathcal{L}(E)$ an endomorphism. If $f$ nilpotent and diagonalisable $\implies \ f=0$ 
+
+- **Def - stable:** Let $S$ be a set and $T$ a function on $S$. $S$ is $T$ stable if $T(S) \subseteq S$
+
+- Let $P\in \mathbb{K}[X]$. Then $f\circ P(f)=P(f)\circ f$

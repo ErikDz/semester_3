@@ -58,6 +58,69 @@ where $a\in K$ and each $P_i$ is an irreducible monic polynomial
 
 ### Lecture 6
 - **Def - minimal polynomial:** The monic polynomial of smallest degree $P\in \mathbb{K}[X]:P(f)=0$
-
+<br>
 - **Corollary 5.4:** E an n-dimensional vector space. A endomorphism $f\in \mathcal{L}$ is diagonalizable if and only if $f$ has n distinct eigenvalues
+<br>
+- $f(x) \in \mathbb{K}[X]$ any polynomial. If $\lambda$ is an eigenvalue of $A$ associated to the eigenvector $v$, then $f(\lambda)$ is an eigenvalue of $A$ associated to the eigenvector $f(v)$
+<br>
+- **Def - eigenvalue of matrix:** $\lambda$ eigenvalue of matrix $A \ \iff$ $A-\lambda I$ not injective
 
+### Lecture 7
+- **Def 5.6 - Diagonalisable:** $E$ a finite-dimensional K-vector space. An endomorphism $f\in\mathcal{L}(E)$ is said to be diagonalisable if
+$$E=\bigoplus\limits_{\lambda\text{ eigenvalue of }\lambda}E_\lambda$$
+> $\sum dim_k E_\lambda = dim_k E$
+
+- **Theo 5.5:** $E$ finite dimension k-vector space. $f\in\mathcal{L}$ diagonalisable $\iff$ its min poly is a product of distinct factors of degree one in $K[X]$
+
+<br>
+
+- **Theo 5.6 - Lemme des noyaux:** $E$ finite-dim K-vect space. $f\in\mathcal{L}(E)$ and $P\in\mathbb{K}[X]$. Assume $P=P_1\ldots P_n$ where $P_i\in K[X]$ are pairwise coprime polynomials, and set $K_i = \ker P_i(f)$. Then:
+    1. The vector subspaces $K_i$ satisfy $f(K_i)\subset K_i$
+    2. $\ker P(f)=\bigoplus_{i=1}^h K_i$
+    3. If $P$ is the min poly of f, then $E=\bigoplus_{i=1}^h K_i$ and the restriction $f_{\restriction K_i}$ of $f$ to $K_i$ has minimal poly $P_i$
+
+<br>
+
+- **Def 5.7 - characteristic poly:** $E$ finite-dim K-vect space. $f\in\mathcal{L}(E)$. The characteristic poly of $f$ if char ply of a matrix $A$ representing $f$ in a basis of E.
+$$\Chi_f=\det(f-X\cdot I_d) = \det(A-X\cdot I_a)$$
+
+- **Corollary 5.8:** If $\mathbb{K}=\mathbb{C}$, $E$ a $\mathbb{K}$-vector space of $\dim\ge 1$, then $f$ has at least one eigenvalue
+<br>
+- **Def - nilpotent:** $f$ nilpotent $\iff$ $\exists n\in\mathbb{N}$ s.t. $f^n=0$
+
+
+### Lecture 8
+- **Theo 5.9 - Cayley Hamilton:** E a finite-dim $\mathbb{K}$-vector space and $f\in\mathcal{L}(E)$. The min polynomial of $f$ divides the char poly of $f$.
+  
+- **Corollary 5.10:** E $n$-dim $\mathbb{K}$-vecotr space. If char poly has $n$ distinct roots in $\mathbb{K}$, then it agrees with the min polynomial and $f$ is diagonalisable
+
+- **Theo 5.11:** $f\in\mathcal{L}(E)$ and $\lambda_1,\ldots,\lambda_n$ the distinct eigenvalues of $f$. Then $f$ diagonalisable $\iff$ f is the char poly of $f$
+
+### Lecture 9
+---
+- **Theo 5.13 - Jordan Chevalley Decomposition:** $f\in\mathcal{L}(E)$ whose char poly is in the form $\Chi_f=\prod\limits_{i=1}^r(\lambda_i - X)^{n_i}$. There exists a unique pair $(d,n)\in\mathcal(E)^2$ such that:
+    1. $f = d+n$
+    2. $d$ is diagonalisbale
+    3. $n$ is nilpotent
+    4. $d$ and $n$ commute, that is, $d\circ n=n\circ d$
+
+- **The algorithm:**
+    1. Find the characteristic polynomial of $A$
+    2. Find $W_i = (x-\lambda_1)\ldots (x-\lambda_{i-1})(x-\lambda_{i+1})\ldots(x-\lambda_n)$  (simply remove $(x-\lambda_i)$ of $\Chi_f$)
+    3. Find $Q_1,\ldots, Q_n$ such that $\sum_{i=1}^n W_iQ_i = 1$
+    4. Finally find $D=\sum_{i=1}^n\lambda_i Q_i W_i$
+    5. To find N, do $N=A-D$
+
+---
+
+
+- **Def - Upper Triangular:** A matrix $A$ is upper triangular if $a_{i,j}=0$ for all $i>j$
+  
+
+- **Def - Triagonizable:** $A \in M_n(K)$ is *triagonizable* when $A$ is similar to a upper triangular matrix. That is, there is $P \in GL_n(K)$ s.t $PAP^{-1}$ is upper triangular
+<br>
+
+
+### EXTRAS
+- **Cauchy product formula:** 
+$$(\sum\limits_{i=0}^\infty a_i)\cdot(\sum\limits_{j=0}^\infty b_j) = \sum\limits_{k=0}^\infty \sum\limits_{l=0}^k a_l\cdot b_{k-l}$$
