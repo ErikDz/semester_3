@@ -14,6 +14,7 @@
     1. $e\in H$
     2. $x,y\in H\implies x*y\in H$
     3. $\forall x\in H, x^{-1}\in H \text{ lies in } H$
+> Prove that $x,y\in H\implies x*y^{-1}\in H$
 
 - **Def - order:** Let $G$ a group. $g\in G$ has finite order $n\ge 1$ if $g^n=e$ but $g^m\ne e$ for all integer $1\le m \le n$. If no such integer, g has an infinite order
 
@@ -25,6 +26,13 @@
 - **Theo 3.3.2 - CRT:** $m,n\ge 1$ and $gcd(m,n)=1$, then 
 $$\mathbb{Z}/mn\mathbb{Z} \rightarrow \mathbb{Z}/m\mathbb{Z}\times\mathbb{Z}/n\mathbb{Z}$$ is bijective
 > A: $\mathbb{Z}/\mathbb{Z}n$ is the set of integers modulo $n$, where $n$ is a positive integer. It is the set of all remainders when integers are divided by $n$.
+
+> The way to solve
+> $$n \equiv 3\mod 5\\n\equiv 2\mod 7$$
+> 1. Solve 1st eq. $n\equiv 3\mod 5 \implies n=3+5k, k\in\mathbb{Z}$
+> 2. Put into 2nd equ. $3+5k\equiv 2\mod 7 \implies 5k\equiv -1\mod 7 \implies k\equiv -3\mod 7$
+> 3. $k=-3+7t$
+> 4. Substitute into original eq 
 
 
 ### Lecture 3
@@ -69,6 +77,8 @@ where $a\in K$ and each $P_i$ is an irreducible monic polynomial
 - **Def 5.6 - Diagonalisable:** $E$ a finite-dimensional K-vector space. An endomorphism $f\in\mathcal{L}(E)$ is said to be diagonalisable if
 $$E=\bigoplus\limits_{\lambda\text{ eigenvalue of }\lambda}E_\lambda$$
 > $\sum dim_k E_\lambda = dim_k E$
+
+- **Def - eigenspace:** $E_{\lambda_i} = \{x\in V | A\cdot x = \lambda_i\cdot x\}$
 
 - **Theo 5.5:** $E$ finite dimension k-vector space. $f\in\mathcal{L}$ diagonalisable $\iff$ its min poly is a product of distinct factors of degree one in $K[X]$
 
@@ -118,6 +128,14 @@ $$\Chi_f=\det(f-X\cdot I_d) = \det(A-X\cdot I_a)$$
   
 
 - **Def - Triagonizable:** $A \in M_n(K)$ is *triagonizable* when $A$ is similar to a upper triangular matrix. That is, there is $P \in GL_n(K)$ s.t $PAP^{-1}$ is upper triangular
+
+- **How to trigonalize matrix:** same as diagonalisation. Only difference: Diagonal matrix now denoted as $T$ and:
+> $\\ $
+> $$ T= \begin{bmatrix}
+    \lambda_1 & 1 & 1 \\
+    0 & \lambda_2 & 1 \\
+    0 & 0 & \lambda_3
+  \end{bmatrix}\\ \ \\ A=PTP^{-1}$$
 <br>
 
 
