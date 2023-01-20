@@ -132,7 +132,7 @@ $$\Chi_f=\det(f-X\cdot I_d) = \det(A-X\cdot I_a)$$
 - **How to trigonalize matrix:** same as diagonalisation. Only difference: Diagonal matrix now denoted as $T$ and:
 > $\\ $
 > $$ T= \begin{bmatrix}
-    \lambda_1 & 1 & 1 \\
+    \lambda_1 & 1 & 0 \\
     0 & \lambda_2 & 1 \\
     0 & 0 & \lambda_3
   \end{bmatrix}\\ \ \\ A=PTP^{-1}$$
