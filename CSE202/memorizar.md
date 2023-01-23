@@ -27,3 +27,5 @@ $$x_{\text{input }L_1}\xrightarrow{\text{polynomial time}} x_{\text{input} L_2}$
 
 ### MISC
 - Approximation ratio
+
+- $$\frac{\log_b x}{\log_b a}=\log_ax$$

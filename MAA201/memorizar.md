@@ -16,9 +16,9 @@
     3. $\forall x\in H, x^{-1}\in H \text{ lies in } H$
 > Prove that $x,y\in H\implies x*y^{-1}\in H$
 
-- **Def - order:** Let $G$ a group. $g\in G$ has finite order $n\ge 1$ if $g^n=e$ but $g^m\ne e$ for all integer $1\le m \le n$. If no such integer, g has an infinite order
 
 ### Lecture 2
+- **Def - order:** Let $G$ a group. $g\in G$ has finite order $n\ge 1$ if $g^n=e$ but $g^m\ne e$ for all integer $1\le m \le n$. If no such integer, g has an infinite order
 - **Def 2.3.1 - Subgroups of $\mathbb{Z}$:** if $0\in X$ and $x\plusmn y\in X, \forall x,y\in X$
 - **Theo 2.3.3 - Bézouts theorem:** $a,b\in\mathbb{Z}^* \implies a\mathbb{Z}+ b\mathbb{Z} = \gcd(a,b)\mathbb{Z}$
 - **Lemma 2.3.4 - Euclid's lemma:** $a,b\in\mathbb{Z}^*$ with $p$ a prime. $p|ab$ and $p\nmid b \implies p|b$
@@ -45,6 +45,8 @@ $$\mathbb{Z}/mn\mathbb{Z} \rightarrow \mathbb{Z}/m\mathbb{Z}\times\mathbb{Z}/n\m
 - **Def 3.3 - Subring** 
     1. $0,1\in A$
     2. $a,b\in A \implies a\plusmn b,\ \ a\cdot b \in A$
+
+- **Def 3.7 - field:** commutative ring $R$ in which all non-zero elements are invertible
 
 ### Lecture 4 
 - **Def 3.4 - Ideal:** $I$ subring of $(R,+,\cdot)$
