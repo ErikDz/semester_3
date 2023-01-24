@@ -69,6 +69,8 @@ $$W_n:=\frac{\bar{X}_n-\mu}{\sigma/\sqrt{N}} \xrightarrow{n\rightarrow\infty} \m
 - **Def 4.2.1 - Confidence Interval:** Let $(X_1, ..., X_n)$ be a sample of a random variable $X$, where $X$ has a pdf $f(x;\theta), \theta\in\Omega$ . Let $0 < \alpha < 1$ specified. Let $L=L(X_1,...,X_n)$ and $U=U(X_1,...,X_n)$ be two statistics. We say that the interval $(L,U)$ is a $(a-\alpha)100\%$ **confidence interval** for $\theta$ if
 $$1-\alpha=P_{\theta}[\theta\in(L,U)]$$
 
+> $$\mathbb{P}[-z_{1-\frac{\alpha}{2}}\lt Z \lt z_{1-\frac{\alpha}{2}}]=1-\alpha$$
+
 - **Def - Consistent estimator:** $\hat{\theta}_n\to \theta$ in probability
 
 - **Def - minimal quadratic risk estimator:** $\hat{\theta}_n$ is the minimal quadratic risk estimator if $R(\hat{\theta}_n)\leq R(\hat{\theta})$ for all $\hat{\theta}$
@@ -95,4 +97,9 @@ $$|p-\hat{p}|\le t\sqrt{\frac{p(1-p)}{n}} \iff \frac{\hat{p}+t²/2n-t\sqrt{\frac
 VS
 $$|p-\hat{p}|\le  t\sqrt{\frac{p(1-p)}{n}} \sim |p-\hat{p}|\le  t\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\\\iff\\\hat{p}-t\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\le p \le \hat{p}+t\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
 
-- Otra forma de 
+- Cuando al hacer el CTL, no se sabe el valor exacto del variance, hay que hacer una estimación (el empirical mean):
+$$\hat{\sigma}_N^2 := \frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X})^2$$
+y usar eso en lugar del $\sigma^2$ real.
+
+En la misma nota, aunque estés estimando $p$, no se puede sustituir directamente en la equación del variance (a no ser que tengas un sample que te diga lo que es $p$ approx), sino hay que calcular el variance del estimador.
+> Por ejemplo, si te dicen que 30 de 300 personas tuvieron éxito en algo, entonces si que puedes usar el estimador directamente en la equación del variance. Por lo contrario, tienes que pillar el variance del estimador.
