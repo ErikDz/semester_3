@@ -1,12 +1,3 @@
-
-### MAA202 (23/1/2023)
-- Final
-- Make-up final
-- Revision TD
-- Change of basis exercises!!
-
-### MAA204 (25/1/2023)
-
 ### MAA201 (26/1/2023)
 - Revise tds (do again)
 - Do last year final

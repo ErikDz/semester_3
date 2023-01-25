@@ -45,8 +45,6 @@
 
 - **Boxplot:** `boxplot(x, main='name_of_title', xlab='name_of_x_label', ylab='name_of_y_label')`
 > Box and whisker
-
-- **Scatter plot:** `plot(x, y, type='p', main='name_of_title', xlab='name_of_x_label', ylab='name_of_y_label')`
 <br>
 
 - `lines(x, y, type='l')` to add a line to a plot. x and y are vectors of values to be plotted. type is the type of plot to be used. p is for points, l is for lines, b is for both points and lines.
@@ -73,7 +71,7 @@
 > Has a first argument `n=` for the number of random numbers to be generated.
 
 - The prefix r of all these commands used here for “random” can be replaced by 3 other prefix:
-    1. **d**: for density, which is the value of the probability density at x∈R for continuous random variables and the value of the probability at x for discrete random variables.
+    1. **d**: for density, which is the value of the probability density at x∈R for continuous random variables and the value of the probability at x for discrete rand om variables.
     2. **p**: the cumulative distribution function at x∈R.
     3. **q**: the theoretical quantile at p∈(0,1).
 

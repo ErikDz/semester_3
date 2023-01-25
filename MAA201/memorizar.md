@@ -38,7 +38,7 @@ $$\mathbb{Z}/mn\mathbb{Z} \rightarrow \mathbb{Z}/m\mathbb{Z}\times\mathbb{Z}/n\m
 ### Lecture 3
 - **Def 3.1 - ring:** A triple $(R,+,\cdot)$: 
     1. $0,1\in A$
-    2. $x\cot(y+z)=x\cdot y + x\cdot z$
+    2. $x\cdot(y+z)=x\cdot y + x\cdot z$
 
 - **Def 3.2 - Commutative:** $x\cdot y = y\cdot x\ \  \forall x,y\in \mathbb{R}$
 
@@ -130,16 +130,33 @@ $$\Chi_f=\det(f-X\cdot I_d) = \det(A-X\cdot I_a)$$
   
 
 - **Def - Triagonizable:** $A \in M_n(K)$ is *triagonizable* when $A$ is similar to a upper triangular matrix. That is, there is $P \in GL_n(K)$ s.t $PAP^{-1}$ is upper triangular
+---
+- **How to trigonalize matrix:** 
+    1. find eigenvalues $\lambda_1,\ldots, \lambda_r$ of $A$
+    2. fix an eigenvalue $\lambda$ of $A$
+    3. find a basis $v_\lambda,\ldots,v_{\lambda,s'}$ for the eigensapace $E_\lambda=\ker(A-\lambda I)$
+    4. if possible, extend to a basis for $\ker((A-\lambda)²)$, then for $\ker((A-\lambda)³)$, etc. (until you cannot find any new vectors to extend with)
+    5. repeat steps 2-4 for all eigenvalues.
+    6. Finally, $P$ is the matrix whose columns are the vectors $v_\lambda,\ldots,v_{\lambda,s'}$ for all eigenvalues $\lambda$ of $A$.
 
-- **How to trigonalize matrix:** same as diagonalisation. Only difference: Diagonal matrix now denoted as $T$ and:
-> $\\ $
-> $$ T= \begin{bmatrix}
-    \lambda_1 & 1 & 0 \\
-    0 & \lambda_2 & 1 \\
-    0 & 0 & \lambda_3
-  \end{bmatrix}\\ \ \\ A=PTP^{-1}$$
-<br>
-
+> **How to find a matrix on a different basis**
+> Let $V=(v_1,v_2,v_3)$ be a new basis we want to express a matrix A on (which is on the canonical basis $(e_1,e_2,e_3)$)
+> - **Step 1:** Calculate $A(v_1)$
+> - **Step 2:** Express $A(v_1)$ in terms of the basis $V$
+> - **Step3:** Hence find $\mu_1,\mu_2,\mu_3$ such that:
+>$$
+  \left[
+    \begin{array}{c}
+a_{1,1}\cdot v_{1,1}\\
+a_{2,1}\cdot v_{1,2}\\
+a_{3,1}\cdot v_{1,3}
+    \end{array}
+  \right] =
+  \mu_1\cdot v_1 + \mu_2\cdot v_2 + \mu_3\cdot v_3
+$$
+> **Step 4:** Do that for every $v_i$. You have that the values $\mu_1,\mu_2,\mu_3$ are the new values of the column for matrix $A$ in the basis $V$
+> **Step 5:** Repeat for every column
+---
 
 ### EXTRAS
 - **Cauchy product formula:** 
